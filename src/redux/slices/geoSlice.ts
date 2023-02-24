@@ -17,7 +17,7 @@ export const fetchForecast = createAsyncThunk('forecast/fetchItems', async (para
   const { lat, lon } = params;
   const options = {
     method: 'GET',
-    url: 'http://localhost:8000/',
+    url: 'https://weeeeather.onrender.com/',
     params: { lat: +lat, lon: +lon },
   };
   const { data } = await axios.request<IForecasts>(options);
