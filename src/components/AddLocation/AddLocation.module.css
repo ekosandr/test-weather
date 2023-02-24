@@ -1,0 +1,4 @@
+.siteInputRight:hover,
+.siteInputRight:focus {
+  border-left-width: 1px;
+}

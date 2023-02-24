@@ -1,0 +1,22 @@
+.currentCard {
+  margin: auto;
+  margin-bottom: 15px;
+  width: 600px;
+  height: 600px;
+  background-image: url('../../assets/rain.jpg');
+  color: white;
+  background-size: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+@media (max-width: 730px) {
+  .currentCard {
+    width: 400px;
+  }
+}
+
+@media (max-width: 415px) {
+  .currentCard {
+    width: 320px;
+  }
+}

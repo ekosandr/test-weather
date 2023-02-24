@@ -1,0 +1,58 @@
+.siteLayoutContent {
+  height: 100vh;
+  width: 100vw;
+}
+
+.currentCard {
+  margin: auto;
+}
+.title {
+  position: relative;
+  left: -350px;
+  font-size: 24px;
+}
+.logo {
+  position: relative;
+  left: -400px;
+  top: 10px;
+}
+
+@media (max-width: 1500px) {
+  .title {
+    position: relative;
+    left: -250px;
+    font-size: 24px;
+  }
+  .logo {
+    position: relative;
+    left: -300px;
+    top: 10px;
+  }
+}
+
+@media (max-width: 1250px) {
+  .title {
+    position: relative;
+    left: -150px;
+    font-size: 24px;
+  }
+  .logo {
+    position: relative;
+    left: -200px;
+    top: 10px;
+  }
+}
+
+@media (max-width: 415px) {
+  .title {
+    position: relative;
+    left: -150px;
+    font-size: 24px;
+    display: none;
+  }
+  .logo {
+    position: relative;
+    left: -50px;
+    top: 10px;
+  }
+}

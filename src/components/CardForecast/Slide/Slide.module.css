@@ -1,0 +1,155 @@
+.currentCard {
+  margin: auto;
+  margin-bottom: 15px;
+  width: 600px;
+  height: 600px;
+  color: white;
+}
+.imgBack1 {
+  background-image: url('../../../assets/overcast.jpg');
+  background-size: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.imgBack2 {
+  background-image: url('../../../assets/overcast2.jpg');
+  background-size: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.imgBack3 {
+  background-image: url('../../../assets/snow.jpg');
+  background-size: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.imgBack4 {
+  background-image: url('../../../assets/rain.jpg');
+  background-size: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.imgBack5 {
+  background-image: url('../../../assets/rain2.jpg');
+  background-size: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.imgBack6 {
+  background-image: url('../../../assets/overcast3.jpg');
+  background-size: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.imgBack7 {
+  background-image: url('../../../assets/snow2.jpg');
+  background-size: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.tempMain {
+  font-size: 75px;
+  position: absolute;
+  top: 20%;
+  left: 35%;
+  font-weight: 300;
+  margin: 5px;
+}
+.time {
+  position: absolute;
+  top: 55px;
+  font-weight: 400;
+  font-size: 24px;
+  margin: 5px;
+}
+.temp {
+  display: flex;
+  font-size: 25px;
+  position: absolute;
+  top: 37%;
+  left: 30%;
+  font-weight: 300;
+  margin: 5px;
+}
+.location {
+  position: absolute;
+  top: 5px;
+  font-weight: 600;
+  /* right: 140px; */
+  font-size: 34px;
+  margin: 5px;
+}
+.coord {
+  position: absolute;
+  top: 55px;
+  font-weight: 400;
+  text-align: end;
+  right: 30px;
+  font-size: 12px;
+}
+p {
+  margin: 0;
+}
+.other {
+  font-size: 25px;
+  position: absolute;
+  top: 62%;
+  left: 18%;
+  font-weight: 300;
+  margin: 5px;
+  text-align: start;
+}
+
+.tempAvg {
+  font-size: 75px;
+  font-weight: 300;
+  height: 95px;
+}
+.descT {
+  font-size: 15px;
+}
+
+.maxMin {
+  text-align: end;
+  position: absolute;
+  top: 22%;
+  left: 28%;
+}
+.tempFeel {
+  font-size: 20px;
+  position: absolute;
+  top: 42%;
+  left: 32%;
+  font-weight: 300;
+  margin: 5px;
+}
+
+@media (max-width: 730px) {
+  .currentCard {
+    width: 400px;
+  }
+  .other {
+    font-size: 20px;
+    position: absolute;
+    top: 62%;
+    left: 18%;
+    font-weight: 300;
+    margin: 5px;
+    text-align: start;
+  }
+  .coord {
+    position: absolute;
+    top: 550px;
+    font-weight: 400;
+    text-align: end;
+    right: 30px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 415px) {
+  .currentCard {
+    width: 320px;
+  }
+}
