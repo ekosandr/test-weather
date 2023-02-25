@@ -6,7 +6,7 @@ import styles from './CardForecast.module.css';
 
 import { RootState, useAppDispatch } from '../../redux/store';
 import { changeAllow, fetchForecast } from '../../redux/slices/geoSlice';
-import { firstAddLocation } from '../../redux/slices/newLocationSlice';
+import { firstAddLocation, setLocations } from '../../redux/slices/newLocationSlice';
 
 import Slide from './Slide/Slide';
 
@@ -26,7 +26,7 @@ const CardForecast = () => {
       );
       setTimeout(() => {
         promis.abort();
-      }, 5000);
+      }, 10000);
       dispatch(
         firstAddLocation({
           lat: String(position.coords.latitude),
@@ -36,7 +36,16 @@ const CardForecast = () => {
     });
   };
   useEffect(() => {
-    getGeoLocation();
+    const storage = localStorage.getItem('locations');
+    if (storage) {
+      console.log(locations[0]);
+      const firstLocation = JSON.parse(storage);
+      dispatch(setLocations(firstLocation));
+      dispatch(changeAllow(true));
+      dispatch(fetchForecast(firstLocation[0]));
+    } else {
+      getGeoLocation();
+    }
   }, []);
 
   useEffect(() => localStorage.setItem('locations', JSON.stringify(locations)), [locations]);

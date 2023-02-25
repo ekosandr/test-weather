@@ -1,6 +1,7 @@
 .siteLayoutContent {
-  height: 100vh;
+  /* height: 10vh; */
   width: 100vw;
+  background-color: #f4f5f7;
 }
 
 .currentCard {
@@ -33,12 +34,12 @@
 @media (max-width: 1250px) {
   .title {
     position: relative;
-    left: -150px;
+    left: -30px;
     font-size: 24px;
   }
   .logo {
     position: relative;
-    left: -200px;
+    left: -70px;
     top: 10px;
   }
 }

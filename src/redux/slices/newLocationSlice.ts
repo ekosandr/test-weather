@@ -45,6 +45,9 @@ const newLocationSlice = createSlice({
     setCurrentLocation(state, action: PayloadAction<number>) {
       state.currrentLocation = action.payload;
     },
+    setLocations(state, actio: PayloadAction<[ILocation]>) {
+      state.locations = [...actio.payload];
+    },
   },
 });
 
@@ -55,6 +58,7 @@ export const {
   onChangeLon,
   firstAddLocation,
   setCurrentLocation,
+  setLocations,
 } = newLocationSlice.actions;
 
 export default newLocationSlice.reducer;

@@ -2,3 +2,15 @@
 .siteInputRight:focus {
   border-left-width: 1px;
 }
+@media (max-width: 550px) {
+  .btn {
+    width: 60px;
+    overflow: hidden;
+  }
+}
+@media (max-width: 415px) {
+  .btn {
+    width: 50px;
+    overflow: hidden;
+  }
+}

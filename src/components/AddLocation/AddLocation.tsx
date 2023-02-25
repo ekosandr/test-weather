@@ -5,6 +5,8 @@ import { changeDay, fetchForecast } from '../../redux/slices/geoSlice';
 import { addLocation, onChangeLat, onChangeLon } from '../../redux/slices/newLocationSlice';
 import { RootState, useAppDispatch } from '../../redux/store';
 
+import styles from './AddLocation.module.css';
+
 const AddLocation = () => {
   const dispatch = useAppDispatch();
   const { lat, lon } = useSelector((state: RootState) => state.locations);
@@ -28,6 +30,7 @@ const AddLocation = () => {
         style={{ width: '15%' }}
       />
       <Button
+        className={styles.btn}
         type="primary"
         style={{ marginLeft: '5px' }}
         disabled={lat !== '' && lon !== '' ? false : true}
