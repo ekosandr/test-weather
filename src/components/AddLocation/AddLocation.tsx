@@ -2,7 +2,7 @@ import { Button, Input } from 'antd';
 import { useSelector } from 'react-redux';
 
 import { changeDay, fetchForecast } from '../../redux/slices/geoSlice';
-import { addLocation, onChangeLat, onChangeLon } from '../../redux/slices/newLocationSlice';
+import { addLocation, onChangeLat, onChangeLon } from '../../redux/slices/locationsSlice';
 import { RootState, useAppDispatch } from '../../redux/store';
 
 import styles from './AddLocation.module.css';

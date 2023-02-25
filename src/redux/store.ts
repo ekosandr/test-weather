@@ -1,12 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import geoReducer from './slices/geoSlice';
-import newLocationReducer from './slices/newLocationSlice';
+import locationsReducer from './slices/locationsSlice';
 import { useDispatch } from 'react-redux';
 
 export const store = configureStore({
   reducer: {
     geo: geoReducer,
-    locations: newLocationReducer,
+    locations: locationsReducer,
   },
 });
 

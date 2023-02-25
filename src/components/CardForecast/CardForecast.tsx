@@ -6,13 +6,17 @@ import styles from './CardForecast.module.css';
 
 import { RootState, useAppDispatch } from '../../redux/store';
 import { changeAllow, fetchForecast } from '../../redux/slices/geoSlice';
-import { firstAddLocation, setLocations } from '../../redux/slices/newLocationSlice';
+import {
+  firstAddLocation,
+  setLocations,
+  setLocationsName,
+} from '../../redux/slices/locationsSlice';
 
 import Slide from './Slide/Slide';
 
 const CardForecast = () => {
   const { isAllow, geolocation, day, status } = useSelector((state: RootState) => state.geo);
-  const locations = useSelector((state: RootState) => state.locations.locations);
+  const { locations, locationsName } = useSelector((state: RootState) => state.locations);
   const dispatch = useAppDispatch();
 
   const getGeoLocation = () => {
@@ -38,17 +42,20 @@ const CardForecast = () => {
   useEffect(() => {
     const storage = localStorage.getItem('locations');
     if (storage) {
-      console.log(locations[0]);
-      const firstLocation = JSON.parse(storage);
-      dispatch(setLocations(firstLocation));
+      const locationInStorage = JSON.parse(storage);
+      dispatch(setLocations(locationInStorage.locations));
       dispatch(changeAllow(true));
-      dispatch(fetchForecast(firstLocation[0]));
+      dispatch(fetchForecast(locationInStorage.locations[0]));
+      dispatch(setLocationsName(locationInStorage.locationsName));
     } else {
       getGeoLocation();
     }
   }, []);
 
-  useEffect(() => localStorage.setItem('locations', JSON.stringify(locations)), [locations]);
+  useEffect(
+    () => localStorage.setItem('locations', JSON.stringify({ locations, locationsName })),
+    [locations, locationsName],
+  );
 
   if (!isAllow) {
     return (
