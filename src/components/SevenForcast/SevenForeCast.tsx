@@ -26,7 +26,7 @@ const SevenForeCast: FC = () => {
         <Radio.Button>Прогноз на 7 дней:</Radio.Button>
         {sevenForcast?.map((item: IForcast, id: number) => {
           return (
-            <Radio.Button key={id} value={id} onClick={() => changeForecast(item, id)}>
+            <Radio.Button key={item.date} value={id} onClick={() => changeForecast(item, id)}>
               {!id ? 'сегодня' : item.date}
             </Radio.Button>
           );
