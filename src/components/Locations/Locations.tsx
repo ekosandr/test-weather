@@ -35,7 +35,8 @@ const Locations: FC = () => {
   return (
     <Radio.Group value={currrentLocation} style={{ margin: '5px' }}>
       {locationsName.map((item: string, id: number) => (
-        <Radio.Button key={id} value={id} onClick={() => changeLocation(id)}>
+        // "item + id" - не лучший вариант для, но для простоты я оставил его,т.к. все равно могут быть совпадения
+        <Radio.Button key={item + id} value={id} onClick={() => changeLocation(id)}>
           {item}
           <Popconfirm
             title="Введите название для локации"
