@@ -4,10 +4,10 @@ import classNames from 'classnames/bind';
 
 import { IForecasts } from '../../../@types/forecast';
 
-import getLocallyTime from '../../../helpers/getLocallyTime';
+import getLocallyTime from '../../../utils/getLocallyTime';
+import getLocationName from '../../../utils/getLocationName';
 
 import styles from './Slide.module.css';
-import getLocationName from '../../../helpers/getLocationName';
 
 type SlideProps = {
   today: boolean;
