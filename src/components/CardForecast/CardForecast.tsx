@@ -1,8 +1,8 @@
-import { useEffect } from 'react';
+import { FC, useEffect } from 'react';
 import { Card, Spin } from 'antd';
 import { useSelector } from 'react-redux';
 
-import styles from './CardForecast.module.css';
+import Slide from './Slide/Slide';
 
 import { RootState, useAppDispatch } from '../../redux/store';
 import { changeAllow, fetchForecast } from '../../redux/slices/geoSlice';
@@ -12,11 +12,10 @@ import {
   setLocationsName,
 } from '../../redux/slices/locationsSlice';
 
-import Slide from './Slide/Slide';
+import styles from './CardForecast.module.css';
 
-const CardForecast = () => {
+const CardForecast: FC = () => {
   const { isAllow, geolocation, day, status } = useSelector((state: RootState) => state.geo);
-  const { locations, locationsName } = useSelector((state: RootState) => state.locations);
   const dispatch = useAppDispatch();
 
   const getGeoLocation = () => {
@@ -51,19 +50,13 @@ const CardForecast = () => {
       getGeoLocation();
     }
   }, []);
-
-  useEffect(
-    () => localStorage.setItem('locations', JSON.stringify({ locations, locationsName })),
-    [locations, locationsName],
-  );
-
   if (!isAllow) {
     return (
       <>
         <Card className={styles.currentCard} bordered={false}>
-          <h2>Предупреждение</h2>
+          <h2>Предупреждение!</h2>
           <p>Приложение не может определить геопозицию.</p>
-          <p>Разрешите доступ к данным о вашем местоположении</p>
+          <p>Разрешите доступ к данным о вашем местоположении.</p>
         </Card>
       </>
     );
@@ -76,13 +69,16 @@ const CardForecast = () => {
         перезагрузить страничку
       </h1>
     );
+  } else if (status === 'loading') {
+    return <Spin size="large" className={styles.spin} />;
   }
+
   if (day === 0 && geolocation.length) {
     return <Slide today={true} data={geolocation[0]} dayNumb={0} />;
   } else if (day !== 0) {
     return <Slide today={false} data={geolocation[0]} dayNumb={day} />;
   } else {
-    return <Spin size="large" />;
+    return <></>;
   }
 };
 

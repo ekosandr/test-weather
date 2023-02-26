@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { Button, Input } from 'antd';
 import { useSelector } from 'react-redux';
 
@@ -7,9 +8,11 @@ import { RootState, useAppDispatch } from '../../redux/store';
 
 import styles from './AddLocation.module.css';
 
-const AddLocation = () => {
+const AddLocation: FC = () => {
   const dispatch = useAppDispatch();
-  const { lat, lon } = useSelector((state: RootState) => state.locations);
+  const lat = useSelector((state: RootState) => state.locations.lat);
+  const lon = useSelector((state: RootState) => state.locations.lon);
+
   function addNewLocation() {
     dispatch(addLocation());
     dispatch(fetchForecast({ lat: lat, lon: lon }));

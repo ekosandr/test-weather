@@ -51,6 +51,9 @@ const geoSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
+    builder.addCase(fetchForecast.pending, (state) => {
+      state.status = 'loading';
+    });
     builder.addCase(fetchForecast.fulfilled, (state, action) => {
       state.geolocation = [action.payload];
       state.sevenForcast = action.payload.forecasts;

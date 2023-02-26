@@ -7,6 +7,7 @@ import { IForecasts } from '../../../@types/forecast';
 import getLocallyTime from '../../../helpers/getLocallyTime';
 
 import styles from './Slide.module.css';
+import getLocationName from '../../../helpers/getLocationName';
 
 type SlideProps = {
   today: boolean;
@@ -30,15 +31,7 @@ const Slide: FC<SlideProps> = ({ today, data, dayNumb }) => {
       })}
       bordered={false}>
       <>
-        <p className={styles.location}>
-          {data.geo_object.locality
-            ? data.geo_object.locality.name
-            : data.geo_object.province
-            ? data.geo_object.province.name
-            : data.geo_object.country
-            ? data.geo_object.country.name
-            : 'Возможно где-то в море'}
-        </p>
+        <p className={styles.location}>{getLocationName(data)}</p>
         {today ? (
           <p className={styles.time}>МЕСТНОЕ ВРЕМЯ {getLocallyTime(data)}</p>
         ) : (

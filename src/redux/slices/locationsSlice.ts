@@ -24,12 +24,15 @@ const locationsSlice = createSlice({
   name: 'newLocation',
   initialState,
   reducers: {
-    addLocation(state: geoSliceState) {
+    addLocation(state) {
       if (!isNaN(+state.lat) && !isNaN(+state.lon)) {
         state.locations.push({ lat: state.lat, lon: state.lon });
         state.locationsName.push(`${state.lat}:${state.lon}`);
+        state.currrentLocation = state.locations.length - 1;
+        const locations = state.locations;
+        const locationsName = state.locationsName;
+        localStorage.setItem('locations', JSON.stringify({ locations, locationsName }));
       }
-      state.currrentLocation += 1;
       state.lat = '';
       state.lon = '';
     },
@@ -53,20 +56,23 @@ const locationsSlice = createSlice({
     setCurrentLocation(state, action: PayloadAction<number>) {
       state.currrentLocation = action.payload;
     },
-    setLocations(state, action: PayloadAction<[ILocation]>) {
-      state.locations = [...action.payload];
+    setLocations(state, action: PayloadAction<ILocation[]>) {
+      state.locations = action.payload;
     },
-    setLocationsName(state, action) {
+    setLocationsName(state, action: PayloadAction<string[]>) {
       state.locationsName = [...action.payload];
     },
-    editLocationName(state, action) {
+    editLocationName(state, action: PayloadAction<number>) {
       state.locationsName[action.payload] = state.name;
       state.name = '';
+      const locations = state.locations;
+      const locationsName = state.locationsName;
+      localStorage.setItem('locations', JSON.stringify({ locations, locationsName }));
     },
     cancelLocationName(state) {
       state.name = '';
     },
-    changeName(state, action) {
+    changeName(state, action: PayloadAction<string>) {
       state.name = action.payload;
     },
   },

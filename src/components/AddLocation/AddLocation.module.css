@@ -1,7 +1,3 @@
-.siteInputRight:hover,
-.siteInputRight:focus {
-  border-left-width: 1px;
-}
 @media (max-width: 550px) {
   .btn {
     width: 60px;

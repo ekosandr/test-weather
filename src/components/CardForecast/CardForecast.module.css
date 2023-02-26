@@ -1,13 +1,16 @@
 .currentCard {
   margin: auto;
   margin-bottom: 15px;
-  width: 600px;
-  height: 600px;
+  width: 550px;
+  height: 550px;
   background-image: url('../../assets/rain.jpg');
   color: white;
   background-size: no-repeat;
   background-position: center;
   background-size: cover;
+}
+.spin {
+  margin: 40px;
 }
 @media (max-width: 730px) {
   .currentCard {

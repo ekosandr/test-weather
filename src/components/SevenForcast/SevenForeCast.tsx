@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { useSelector } from 'react-redux';
 import { Radio } from 'antd';
 
@@ -6,8 +7,9 @@ import { RootState, useAppDispatch } from '../../redux/store';
 
 import { IForcast } from '../../@types/forecast';
 
-const SevenForeCast = () => {
+const SevenForeCast: FC = () => {
   const { sevenForcast, day, status } = useSelector((state: RootState) => state.geo);
+
   const dispatch = useAppDispatch();
   function changeForecast(day: IForcast, id: number) {
     if (id === 0) {
@@ -20,18 +22,16 @@ const SevenForeCast = () => {
   }
   if (status === 'success') {
     return (
-      <div style={{ margin: '5px' }}>
-        <Radio.Group value={day}>
-          <Radio.Button>Прогноз на 7 дней:</Radio.Button>
-          {sevenForcast?.map((item: IForcast, id: number) => {
-            return (
-              <Radio.Button key={id} value={id} onClick={() => changeForecast(item, id)}>
-                {!id ? 'сегодня' : item.date}
-              </Radio.Button>
-            );
-          })}
-        </Radio.Group>
-      </div>
+      <Radio.Group value={day} style={{ margin: '5px' }}>
+        <Radio.Button>Прогноз на 7 дней:</Radio.Button>
+        {sevenForcast?.map((item: IForcast, id: number) => {
+          return (
+            <Radio.Button key={id} value={id} onClick={() => changeForecast(item, id)}>
+              {!id ? 'сегодня' : item.date}
+            </Radio.Button>
+          );
+        })}
+      </Radio.Group>
     );
   }
   return null;

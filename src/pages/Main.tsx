@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Layout } from 'antd';
 
 import CurrentCard from '../components/CardForecast/CardForecast';
@@ -11,10 +11,10 @@ import svg from '../assets/weather.svg';
 
 const { Header, Content } = Layout;
 
-const Main: React.FC = () => {
+const Main: FC = () => {
   return (
     <Layout className={styles.siteLayoutContent}>
-      <Header className={styles.der} style={{ backgroundColor: 'white' }}>
+      <Header className={styles.header} style={{ backgroundColor: 'white' }}>
         <img className={styles.logo} width="40" src={svg} alt="weather logo" />
         <span className={styles.title}>Weather</span>
         <AddLocation />
