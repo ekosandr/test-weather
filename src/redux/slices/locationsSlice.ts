@@ -57,6 +57,9 @@ const locationsSlice = createSlice({
         'locations',
         JSON.stringify({ locations: state.locations, locationsName: state.locationsName }),
       );
+      if (state.currrentLocation > action.payload) {
+        state.currrentLocation -= 1;
+      }
     },
     setCurrentLocation(state, action: PayloadAction<number>) {
       state.currrentLocation = action.payload;
